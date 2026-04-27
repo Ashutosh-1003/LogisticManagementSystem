@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+
+
+<head>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .navbar {
+            background-color: green;
+            color: white;
+        }
+    </style>
+    <style>
+        .phone {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .row {
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-fixed-top" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+                </div>
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav">
+                        <li> @Html.ActionLink("About", "About", "Home")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+
+                                <li><a href=@Url.Action("Transportaion","Services")>TRANSPORTAION</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href=@Url.Action("Login","Login")>Login</a></li>
+                        <li>
+                            @Html.ActionLink("Track", "TrackYourShipment", "Track")
+                        </li>
+                       
+
+                    </ul>
+                    <div class="phone">
+                        <span class="glyphicon glyphicon-phone"></span>
+                        Call:9865445567
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-control-static">
+            @RenderBody()
+
+            <hr />
+            <footer>
+                <div class="row" style="height:40px;background-color:green;width:100%">
+                    <div class="col-sm-2" style="color:white;margin-top:5px"><p>&copy; @DateTime.Now.Year - My ASP.NET Application</p></div>
+                    <div class="col-sm-2" style="color:white;margin-top:5px">About </div>
+                    <div class="col-sm-2" style="color:white;margin-top:5px">Otherlink</div>
+                    <div class="col-sm-2" style="color:white;margin-top:5px">OurObjective</div>
+                    <div class="col-sm-2" style="color:white;margin-top:5px">carrer</div>
+                    <div class="col-sm-2" style="color:white;margin-top:5px">Trainee Feedback</div>
+                </div>
+
+            </footer>
+        </div>
+    </div>
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+
+</body>
+</html>

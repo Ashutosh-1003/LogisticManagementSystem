@@ -1,0 +1,16 @@
+﻿@model string
+@{
+    ViewBag.Title = "EmployeeHome";
+}
+<style>
+    .row
+    {
+        margin-top:400px;
+    }
+</style>
+
+<h2 style="margin-top:70px;margin-left:200px;color:greenyellow">WELCOME IN EMPLOYEE HOME PAGE</h2>
+
+<li>@Html.ActionLink("ORDER ARRIVING", "ARRIVALORDER", "EMPLOYEE",new { Worklocation = Model }, new { @class = "btn btn-success my-2 my-sm-0" })</li>
+<li>@Html.ActionLink("SHIPPED ORDER", "ShipmentOrder", "EMPLOYEE", new { Worklocation = Model }, new { @class = "btn btn-success my-2 my-sm-0" })</li>
+

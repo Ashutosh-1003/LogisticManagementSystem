@@ -1,0 +1,55 @@
+﻿@model List<LogisticManagementSystem.Models.ShipmentModel>
+
+<style>
+    .row{
+        margin-top:400px
+    }
+</style>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <div class="container" style="margin-top:120PX">
+
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ShipmentId</th>
+                        <th>CompanyName</th>
+                        <th>ContactPersonName</th>
+                        <th>CompanyState</th>
+                        <th>GoodsWeight</th>
+                        <th>ContactNumber</th>
+                        <th>Pickupdate</th>
+                        <th>DropUpDate</th>
+                        <th>CurrentLocation</th>
+                    </tr>
+                </thead>
+                @foreach (var v in Model)
+                {
+                    <tbody>
+
+                        <tr>
+                            <td>@Html.ActionLink(Convert.ToString(v.ShipmentId), "GetIddetails", v)</td>
+                            <td>@v.CompanyName</td>
+                            <td>@v.ContactPersonName</td>
+                            <td>@v.CompanyState</td>
+                            <td>@v.GoodsWeight</td>
+                            <td>@v.ContactNumber</td>
+                            <td>@v.PickUpDate</td>
+                            <td>@v.DropDate</td>
+                            <td>@v.ProductCurrentLocation</td>
+                        </tr>
+
+                    </tbody>
+                }
+            </table>
+
+        </div>
+
+    }
+
+</body>
+<li>@Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "btn btn-success my-2 my-sm-0" })</li>
+

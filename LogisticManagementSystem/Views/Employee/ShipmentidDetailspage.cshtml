@@ -1,0 +1,147 @@
+﻿
+@model LogisticManagementSystem.Models.ShipmentModel
+
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    @*<script>
+            var j = jQuery.noConflict();
+            j(function () {
+                j(".datepicker").datepicker();
+            });
+        </script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            //Dropdownlist Selectedchange event
+            $("#DriverName").change(function () {
+
+                $("#DriverName").css({ "border-color": "skyblue" })
+            });
+            $("#DriverName").change(function () {
+                debugger;
+
+                var dataval = { driverName: $("#DriverName").val() };
+                //$("#DriverNumber").empty();
+                $("#DriverEmail").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetDriverInfo")', // we are calling json method
+                    dataType: 'json',
+                    data: dataval,
+                    success: function (ShipmentDetails) {
+                        alert("success");
+                        debugger;
+                        //var obj = JSON.parse(cityes.listofcity);
+                        $("#DriverNumber").val(ShipmentDetails.DriverNumber);
+
+                        $("#DriverEmail").val(ShipmentDetails.DriverEmail);
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve city.' + ex);
+                    }
+                });
+                debugger;
+               // var j = model;
+                return false;
+            })
+        });
+        </script>
+
+    *@
+</head>
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="row" style="color:orange;margin-top:20px;margin-bottom:5px">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"><h2>SHIPMENTID DETAILS</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0">
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-0 col-xs-0" style="margin-top:10px;margin-bottom:50px">
+                <div class="form-group">
+                    <h4>Shipmentid</h4>
+                    @Html.TextBoxFor(model => model.ShipmentId, new { @readonly = "readonly", @class = "form-control input-lg" })
+                </div>
+                <div class="form-group">
+                    <h4>Companyname</h4>
+                    @Html.TextBoxFor(model => model.CompanyName, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>ContactPersonName</h4>
+                    @Html.TextBoxFor(model => model.ContactPersonName, new { @readonly = "readonly", @class = "form-control input-lg" })
+                </div>
+                <div class="form-group">
+                    <h4>Company State</h4>
+                    @Html.TextBoxFor(model => model.CompanyState, new { @readonly = "readonly", @class = "form-control input-lg" })
+
+                    <h4>Company City</h4>
+                    @Html.TextBoxFor(model => model.CompanyCity, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4> Company Address</h4>
+                    @Html.TextBoxFor(model => model.CompanyStreetAdd, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Company Pincode</h4>
+                    @Html.TextBoxFor(model => model.CompanyPinId, new { @readonly = "readonly", @class = "form-control input-lg" })
+
+                </div>
+                <div class="form-group">
+                    <h4>Contact number</h4>
+                    @Html.TextBoxFor(model => model.ContactNumber, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Company Email</h4>
+                    @Html.TextBoxFor(model => model.CompanyEmail, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Companytype</h4>
+                    @Html.TextBoxFor(model => model.CompanyType, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Goods Weight</h4>
+                    @Html.TextBoxFor(model => model.GoodsWeight, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>DriverName</h4>
+                    @Html.TextBoxFor(model => model.DriverName, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>DriverNumber</h4>
+                    @Html.TextBoxFor(model => model.DriverNumber, new { @readonly = "readonly", @class = "form-control input-lg" })
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-0 col-xs-0" style="margin-top:10px;margin-bottom:50px">
+
+
+
+                <div class="form-group">
+                    <h4>PckupDate</h4>
+                    @Html.TextBoxFor(model => model.PickUpDate, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>
+                        PickupState
+                    </h4>
+                    @Html.TextBoxFor(model => model.PickUpState, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>PickupCity</h4>
+                    @Html.TextBoxFor(model => model.PickUpCity, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>PickupStreet</h4>
+                    @Html.TextBoxFor(model => model.PickUpStreetAdd, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Pickup City Pin</h4>
+                    @Html.TextBoxFor(model => model.PickUpPin, new { @readonly = "readonly", @class = "form-control input-lg" })
+
+                    <h4>DropUp State</h4>
+                    @Html.TextBoxFor(model => model.DestinationState, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Dropupcity</h4>
+                    @Html.TextBoxFor(model => model.DestinationCity, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>DropupStreetAdd</h4>
+                    @Html.TextBoxFor(model => model.DestinationStreetAdd, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Dropup City Pin</h4>
+                    @Html.TextBoxFor(model => model.DestinationPin, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Drop Date</h4>
+                    @Html.TextBoxFor(model => model.DropDate, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>DriverEmail</h4>
+                    @Html.TextBoxFor(model => model.DriverEmail, new { @readonly = "readonly", @class = "form-control input-lg" })
+                    <h4>Product Current Location</h4>
+                    @Html.TextBoxFor(model => model.ProductCurrentLocation, new { @readonly = "readonly", @class = "form-control input-lg" })
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        
+    }
+
+
+

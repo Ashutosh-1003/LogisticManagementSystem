@@ -1,0 +1,194 @@
+﻿@model LogisticManagementSystem.Models.EnquiryModel
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
+    @* <script src="~/Views/Scripts/bootstrap.min.js"></script>
+        <script src="~/Views/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Views/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Views/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            $("#FirstName").keypress(function () {
+                debugger;
+                $("#FirstName").css({ "border-color": "skyblue" });
+            });
+            $("#LastName").keypress(function () {
+                debugger;
+                $("#LastName").css({ "border-color": "skyblue" });
+            });
+            $("#JobTitle").keypress(function () {
+                debugger;
+                $("#JobTitle").css({ "border-color": "skyblue" });
+            });
+            $("#Company").keypress(function () {
+                debugger;
+                $("#Company").css({ "border-color": "skyblue" });
+            });
+            $("#State").change(function () {
+                debugger;
+                $("#State").css({ "border-color": "skyblue" });
+            });
+            $("#Email").keypress(function () {
+                debugger;
+                $("#Email").css({ "border-color": "skyblue" });
+            });
+            $("#Phone").keypress(function () {
+                debugger;
+                $("#Phone").css({ "border-color": "skyblue" });
+            });
+
+        });
+
+    </script>
+
+
+
+
+</head>
+<script type="text/javascript">
+    function pagevalidation() {
+        debugger;
+        var a = 0;
+        var fname = document.getElementById('FirstName').value;
+        var exp = /^[a-zA-Z]{2,15}$/;
+        if (!fname.match(exp) || fname == ""){
+            document.getElementById('FirstName').value = "";
+            document.getElementById('FirstName').setAttribute("placeholder", "First name is not valid");
+            document.getElementById('FirstName').style.borderColor = "red";
+
+            a = a + 1;
+        }
+        var lname = document.getElementById('LastName').value;
+        var exp = /^[a-zA-Z]{2,15}$/;
+        if (!lname.match(exp) || lname == "") {
+            document.getElementById('LastName').value = "";
+            document.getElementById('LastName').setAttribute("placeholder", "last name is not valid");
+            document.getElementById('LastName').style.borderColor = "red";
+            a = a + 1;
+        }
+        var jobtile = document.getElementById('JobTitle').value;
+        var exp = "^[a-zA-Z\\s]+$";
+        if (!jobtile.match(exp) || jobtile == "") {
+            document.getElementById('JobTitle').value = "";
+            document.getElementById('JobTitle').setAttribute("placeholder", "job title is not valid");
+            document.getElementById('JobTitle').style.borderColor = "red";
+            a = a + 1;
+        }
+        var company = document.getElementById('Company').value;
+        var exp = "^[a-zA-Z\\s]+$";
+        if (!company.match(exp) || company == "") {
+            document.getElementById('Company').value = "";
+            document.getElementById('Company').setAttribute("placeholder", "please enter valid company name");
+            document.getElementById('Company').style.borderColor = "red";
+            a = a + 1;
+
+        }
+        var state = document.getElementById('State').value;
+        var exp = "^[a-zA-Z\\s]+$";
+        if (!state.match(exp) || state == "") {
+            document.getElementById('State').value = "";
+            document.getElementById('State').setAttribute("placeholder", "please select state");
+            document.getElementById('State').style.borderColor = "red";
+            a = a + 1;
+        }
+        var email = document.getElementById('Email').value;
+        var exp = /^[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,4}$/;
+        if (!email.match(exp) || email == "") {
+            document.getElementById('Email').value = "";
+            document.getElementById('Email').setAttribute("placeholder", "please type correct mail id");
+            document.getElementById('Email').style.borderColor = "red";
+            a = a + 1;
+        }
+        var phone = document.getElementById('Phone').value;
+        var exp = /^[0-9]{10}$/;
+        if (!phone.match(exp) || phone == "") {
+            document.getElementById('Phone').value = "";
+            document.getElementById('Phone').setAttribute("placeholder", "Number is not in correct format");
+            document.getElementById('Phone').style.borderColor = "red";
+            a = a + 1;
+        }
+        if (a == 0) {
+            alert('Enquery Registeded Successfully');
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+</script>
+
+@using (Html.BeginForm("Home", "Home", FormMethod.Post, new { @class = "container" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-0 col-xs-0">
+            <h3 style=" margin-top: 50px;background-image: url('../../Image/LogisticBlog.jpg');">
+                 Services<br />
+                Digital Imaging<br />
+                Media Management<br />
+                Document Management<br />
+                Secure Destruction<br />
+                Consultancy<br />
+                Document Management System (DMS) Software Application
+            </h3>
+
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-top:50px;margin-bottom:20px">
+
+            <div class="panel panel panel-default" style="background-color:burlywood">
+                <div class="panel-heading" style="background-color:cyan">NEW ENQUIRY PAGE</div>
+                <div class="panel-body">
+                    <div class="form-group mb-3">
+                        <div>
+                            @Html.TextBoxFor(name => name.FirstName, new { @class = "form-control", placeholder = "FIRSTNAME" })
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(lastname => lastname.LastName, new { @class = "form-control", placeholder = "LASTNAME" })
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(jobtitle => jobtitle.JobTitle, new { @class = "form-control", placeholder = "JOBTITLE" })
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(company => company.Company, new { @class = "form-control", placeholder = "COMPANY NAME" })
+                        </div>
+                        <div>
+                            @Html.DropDownListFor(state => state.State, new SelectList(Model.StateName), "--select--", new { @class = "form-control" })
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(email => email.Email, new { @class = "form-control", placeholder = "EMAIL", type = "email" })
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(phone => phone.Phone, new { @class = "form-control", placeholder = "CONTACTNO" })
+                        </div>
+                        <div>
+                            @Html.TextAreaFor(message => message.Message, new { @class = "form-control", placeholder = "MESSAGE" })
+                        </div>
+
+                       
+
+
+
+                    </div>
+
+                    <input type="submit" value="submit" style="background-color:cyan;width:330px" onclick="return pagevalidation() " />
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
